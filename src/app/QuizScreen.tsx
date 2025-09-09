@@ -2,6 +2,9 @@ import { View, Text, StyleSheet, SafeAreaView, Pressable } from 'react-native';
 import QuestionCard from './components/QuestionCard';
 import FontAwesome6 from 'react-native-vector-icons/FontAwesome6';
 import CustomButton from './components/Custombutton';
+import questions from '../questions';
+
+const question = questions[0];
 
 export default function QuizScreen() {
   return (
@@ -14,7 +17,7 @@ export default function QuizScreen() {
 
         {/* Body */}
         <View>
-          <QuestionCard />
+          <QuestionCard question={question} />
           <Text style={styles.timer}>20 sec</Text>
         </View>
 

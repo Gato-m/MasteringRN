@@ -1,10 +1,14 @@
 import { View, Text, StyleSheet, Pressable } from 'react-native';
 import { Question } from '../types';
 
-export default function AnswerOption() {
+type AnswerProps = {
+  option: string;
+};
+
+export default function AnswerOption({ option }: AnswerProps) {
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>atbildes variants</Text>
+      <Text style={styles.text}>{option}</Text>
     </View>
   );
 }

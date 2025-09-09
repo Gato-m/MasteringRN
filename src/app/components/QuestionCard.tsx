@@ -3,14 +3,18 @@ import { useState } from 'react';
 import AnswerOption from './AnswerOption';
 import { Question } from '../types';
 
-export default function QuestionCard() {
+type QuestionProps = {
+  question: Question;
+};
+
+export default function QuestionCard({ question }: QuestionProps) {
   return (
     <View style={styles.questionCard}>
-      <Text style={styles.question}>jautajiens</Text>
-      <AnswerOption />
-      <AnswerOption />
-      <AnswerOption />
-      <AnswerOption />
+      <Text style={styles.question}>{question.title}</Text>
+      <AnswerOption option={question.options[0]} />
+      <AnswerOption option={question.options[1]} />
+      <AnswerOption option={question.options[2]} />
+      <AnswerOption option={question.options[3]} />
     </View>
   );
 }
