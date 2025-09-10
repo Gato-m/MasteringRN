@@ -3,18 +3,43 @@ import { useState } from 'react';
 import AnswerOption from './AnswerOption';
 import { Question } from '../types';
 
-type QuestionProps = {
+type QuestionCardProps = {
   question: Question;
 };
 
-export default function QuestionCard({ question }: QuestionProps) {
+export default function QuestionCard({ question }: QuestionCardProps) {
+  const selectedOption = question.options[0];
+
+  const onOptionSelected = (option: string) => {
+    console.warn('Selected ', option);
+  };
+
   return (
     <View style={styles.questionCard}>
       <Text style={styles.question}>{question.title}</Text>
-      <AnswerOption option={question.options[0]} />
-      <AnswerOption option={question.options[1]} />
-      <AnswerOption option={question.options[2]} />
-      <AnswerOption option={question.options[3]} />
+      <AnswerOption
+        option={question.options[0]}
+        isSelected={question.options[0] === selectedOption}
+        onPress={() => onOptionSelected(question.options[0])}
+      />
+
+      <AnswerOption
+        option={question.options[1]}
+        isSelected={question.options[1] === selectedOption}
+        onPress={() => onOptionSelected(question.options[1])}
+      />
+
+      <AnswerOption
+        option={question.options[2]}
+        isSelected={question.options[2] === selectedOption}
+        onPress={() => onOptionSelected(question.options[2])}
+      />
+
+      <AnswerOption
+        option={question.options[3]}
+        isSelected={question.options[3] === selectedOption}
+        onPress={() => onOptionSelected(question.options[3])}
+      />
     </View>
   );
 }
