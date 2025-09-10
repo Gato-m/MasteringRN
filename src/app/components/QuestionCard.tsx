@@ -19,8 +19,9 @@ export default function QuestionCard({ question }: QuestionCardProps) {
       <Text style={styles.question}>{question.title}</Text>
 
       <View style={{ gap: 10 }}>
-        {question.options.map((option, index) => (
+        {question.options.map((option) => (
           <AnswerOption
+            key={option}
             option={option}
             isSelected={option === selectedOption}
             onPress={() => onOptionSelected(option)}
