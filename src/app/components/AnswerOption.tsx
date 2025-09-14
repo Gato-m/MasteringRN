@@ -32,7 +32,7 @@ export default function AnswerOption({
           ],
         ]}
       >
-        {option}
+        {option} "smth wrong text"
       </Text>
     </Pressable>
   );
