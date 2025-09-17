@@ -1,13 +1,19 @@
-import { View, Text, StyleSheet } from 'react-native';
+import { Pressable, Text, StyleSheet } from 'react-native';
 
 type AnswerProps = {
   option: string;
   isSelected?: boolean;
+  onPress?: () => void;
 };
 
-export default function AnswerOption({ option, isSelected }: AnswerProps) {
+export default function AnswerOption({
+  option,
+  isSelected,
+  onPress,
+}: AnswerProps) {
   return (
-    <View
+    <Pressable
+      onPress={onPress}
       style={[
         styles.container,
         isSelected && [
@@ -28,7 +34,7 @@ export default function AnswerOption({ option, isSelected }: AnswerProps) {
       >
         {option}
       </Text>
-    </View>
+    </Pressable>
   );
 }
 

@@ -9,17 +9,20 @@ type QuestionCardProps = {
 
 export default function QuestionCard({ question }: QuestionCardProps) {
   const selectedOption = question.options[0];
+  const currentSelectoption = (option: string) => {
+    console.log('Current Selected: ', option);
+  };
 
   return (
     <View style={styles.questionCard}>
       <Text style={styles.question}>{question.title}</Text>
-
       <View style={{ gap: 10 }}>
         {question.options.map((option) => (
           <AnswerOption
             key={option}
             option={option}
             isSelected={option === selectedOption}
+            onPress={() => currentSelectoption(option)}
           />
         ))}
       </View>
