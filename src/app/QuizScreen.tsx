@@ -3,8 +3,9 @@ import QuestionCard from './components/QuestionCard';
 import FontAwesome6 from 'react-native-vector-icons/FontAwesome6';
 import CustomButton from './components/Custombutton';
 import questions from '../questions';
+import Card from './components/Card';
 
-const question = questions[0];
+const question = questions[120];
 
 export default function QuizScreen() {
   return (
@@ -17,7 +18,16 @@ export default function QuizScreen() {
 
         {/* Body */}
         <View>
-          <QuestionCard question={question} />
+          {question ? (
+            <QuestionCard question={question} />
+          ) : (
+            <Card title="There are no questions yet!">
+              <Text>Correct answers 3/5</Text>
+              <Text>Best score 10</Text>
+            </Card>
+          )}
+
+          {/* Timer */}
           <Text style={styles.timer}>20 sec</Text>
         </View>
 
