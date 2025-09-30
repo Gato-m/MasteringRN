@@ -1,23 +1,23 @@
-import { View, Text, StyleSheet, Pressable } from 'react-native';
-import { ComponentProps } from 'react';
+import { ComponentProps, ReactNode } from 'react';
+import { Pressable, Text, StyleSheet, View } from 'react-native';
 
 type CustomButton = {
+  rightIcon?: ReactNode;
   title: string;
-  rightIcon?: React.ReactNode;
 } & ComponentProps<typeof Pressable>;
 
-export default function CustomButton({
-  title,
+const CustomButton = ({
   rightIcon,
-  ...ComponentProps
-}: CustomButton) {
+  title,
+  ...pressableProps
+}: CustomButton) => {
   return (
-    <Pressable style={styles.button} {...ComponentProps}>
+    <Pressable {...pressableProps} style={styles.button}>
       <Text style={styles.buttonText}>{title}</Text>
-      {rightIcon && <View style={styles.rightIcon}>{rightIcon}</View>}
+      <View style={styles.rightIcon}>{rightIcon}</View>
     </Pressable>
   );
-}
+};
 
 const styles = StyleSheet.create({
   button: {
@@ -36,6 +36,8 @@ const styles = StyleSheet.create({
   },
   rightIcon: {
     position: 'absolute',
-    right: 40,
+    right: 20,
   },
 });
+
+export default CustomButton;

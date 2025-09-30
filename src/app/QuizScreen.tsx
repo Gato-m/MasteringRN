@@ -1,11 +1,11 @@
-import { View, Text, StyleSheet, SafeAreaView, Pressable } from 'react-native';
+import { View, Text, StyleSheet, SafeAreaView } from 'react-native';
 import QuestionCard from './components/QuestionCard';
-import FontAwesome6 from 'react-native-vector-icons/FontAwesome6';
-import CustomButton from './components/Custombutton';
+import CustomButton from './components/CustomButton';
 import questions from '../questions';
 import Card from './components/Card';
+import { FontAwesome6 } from '@expo/vector-icons';
 
-const question = questions[120];
+const question = questions[0];
 
 export default function QuizScreen() {
   return (
@@ -33,10 +33,11 @@ export default function QuizScreen() {
 
         {/* Footer */}
         <CustomButton
-          title="Next"
-          onPress={() => console.warn('Next')}
+          title="CUSTOM BUTTON"
+          onPress={() => console.log('Custom Button Pressed!')}
+          onLongPress={() => console.log('Lon Press - Pressed!')}
           rightIcon={
-            <FontAwesome6 name="arrow-right-long" size={16} color="white" />
+            <FontAwesome6 name="arrow-right" size={18} color="white" />
           }
         />
       </View>
@@ -63,22 +64,5 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     color: '#005055',
     fontWeight: 'bold',
-  },
-  button: {
-    backgroundColor: '#005055',
-    padding: 20,
-    borderRadius: 100,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  buttonText: {
-    color: 'white',
-    fontWeight: '500',
-    fontSize: 16,
-    letterSpacing: 1.5,
-  },
-  buttonIcon: {
-    position: 'absolute',
-    right: 30,
   },
 });
